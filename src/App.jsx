@@ -4,6 +4,7 @@ import OriginalTelevisionStock from "./helpers/OriginalTelevisionStock.js";
 import TelevisionsToBeSold from "./helpers/TelevisionsToBeSold.js";
 import {bestSellingTv, inventory} from "./constants/inventory.js";
 import FormatScreenSizes from "./helpers/FormatScreenSizes.js";
+import FormatOptions from "./helpers/FormatOptions.jsx";
 
 function App() {
     return (
@@ -28,15 +29,29 @@ function App() {
             </section>
             <section className="best-seller-section">
                 <h3>Best verkochte tv</h3>
-                <span className="best-selling-tv-image">
-                        <img src={bestSellingTv.sourceImg} alt="Afbeelding van de tv"/>
+                <article className="product product-best-seller">
+                <span className="product-image">
+                        <img src={bestSellingTv.sourceImg} alt="Afbeelding van het product"/>
                 </span>
-                <article className="best-selling-tv">
-                    <h4>{bestSellingTv.brand} {bestSellingTv.type} - {bestSellingTv.name}</h4>
-                    <h3>€{bestSellingTv.price},-</h3>
-                    <small>{FormatScreenSizes(bestSellingTv)}</small>
-                    <small></small>
+                    <div className="product-info">
+                        <h4>{bestSellingTv.brand} {bestSellingTv.type} - {bestSellingTv.name}</h4>
+                        <h3>€{bestSellingTv.price},-</h3>
+                        <small>{FormatScreenSizes(bestSellingTv)}</small>
+                        <small>{FormatOptions(bestSellingTv)}</small>
+                    </div>
                 </article>
+            </section>
+            <section className="all-television-section">
+                <h3>Alle tvs</h3>
+                <button type="button">
+                    Meest verkocht eerst
+                </button>
+                <button type="button">
+                    Goedkoopste eerst
+                </button>
+                <button type="button">
+                    Meest geschikt voor sport eerst
+                </button>
             </section>
         </main>
     )
