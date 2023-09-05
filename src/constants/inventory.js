@@ -328,4 +328,20 @@ export let inventory = [
     },
 ];
 
+const getAllTvTypes = inventory.map((i) => i.type);
+console.log(getAllTvTypes);
 
+const filterOutOfStock = inventory.filter((i) => i.originalStock - i.sold === 0);
+console.log(filterOutOfStock);
+
+const findItemByType = inventory.find((i) => i.type === "NH3216SMART");
+console.log(findItemByType);
+
+const filterForSports = inventory.map((i) => {
+    const suitableForSports = i.refreshRate >= 100;
+        return {
+            name: i.name,
+            suitable: suitableForSports,
+        };
+});
+console.log(filterForSports);

@@ -7,6 +7,18 @@ import FormatScreenSizes from "./helpers/FormatScreenSizes.js";
 import FormatOptions from "./helpers/FormatOptions.jsx";
 
 function App() {
+    function sortBySalesTopDown() {
+        console.log("Meest verkocht eerst")
+    }
+
+    function sortByPriceBottomUp() {
+        console.log("Goedkoopste eerst")
+    }
+
+    function sortForSportsTopDown() {
+        console.log("Meest geschikt voor sport eerst")
+    }
+
     return (
         <main className="main-container">
             <h1>Tech it easy dashboard</h1>
@@ -43,13 +55,13 @@ function App() {
             </section>
             <section className="all-television-section">
                 <h3>Alle tvs</h3>
-                <button type="button">
+                <button type="button" onClick={sortBySalesTopDown}>
                     Meest verkocht eerst
                 </button>
-                <button type="button">
+                <button type="button" onClick={sortByPriceBottomUp}>
                     Goedkoopste eerst
                 </button>
-                <button type="button">
+                <button type="button" onClick={sortForSportsTopDown}>
                     Meest geschikt voor sport eerst
                 </button>
             </section>
