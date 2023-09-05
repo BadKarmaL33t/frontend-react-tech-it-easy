@@ -345,3 +345,12 @@ const filterForSports = inventory.map((i) => {
         };
 });
 console.log(filterForSports);
+
+const getAllLargeScreenTv = inventory.filter((i) => i.availableSizes.some((x) => x >= 65));
+console.log(getAllLargeScreenTv);
+
+const getAllAmbiLightTv = inventory.filter((i) => {
+    const ambiLightOption = i.options.find((option) => option.name === "ambiLight");
+    return ambiLightOption && ambiLightOption.applicable === true;
+});
+console.log(getAllAmbiLightTv);
