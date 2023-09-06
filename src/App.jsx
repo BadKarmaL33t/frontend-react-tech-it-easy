@@ -12,9 +12,9 @@ function App() {
     const [sortedInventory, setSortedInventory] = useState(inventory);
 
     function sortBySalesTopDown() {
-        const sorted = [...inventory]; // Create a copy to avoid mutating the original array
+        const sorted = [...inventory];
         sorted.sort((a, b) => b.sold - a.sold);
-        setSortedInventory(sorted); // Update the state with the sorted list
+        setSortedInventory(sorted);
         console.log("Meest verkocht eerst");
     }
 
@@ -40,6 +40,18 @@ function App() {
 
         setSortedInventory(sorted);
         console.log("Meest geschikt voor sport eerst");
+    }
+
+    function sortLargeScreenTopDown() {
+        const sorted = [...inventory];
+        sorted.sort((a, b) => {
+            const maxSizeA = Math.max(...a.availableSizes);
+            const maxSizeB = Math.max(...b.availableSizes);
+
+            return maxSizeB - maxSizeA;
+        });
+        setSortedInventory(sorted);
+        console.log("Grootste scherm eerst");
     }
 
     return (
@@ -86,6 +98,9 @@ function App() {
                 </button>
                 <button type="button" onClick={sortForSportsTopDown}>
                     Meest geschikt voor sport eerst
+                </button>
+                <button type="button" onClick={sortLargeScreenTopDown}>
+                    Grootste schermgroottes eerst
                 </button>
                 <div>
                     {ListAllTelevisions(sortedInventory)}
