@@ -11,7 +11,7 @@
 }
 
 .main-container {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 32px;
 }
@@ -77,16 +77,20 @@
     max-width: 200px;
 }
 
-.icon {
-    width: 12px;
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
 }
 
 .options-list {
     display: flex;
     flex-direction: row;
-    list-style: none;
     gap: 8px;
-    padding-left: 0;
+    padding: 12px 0;
 }
 
 button {
