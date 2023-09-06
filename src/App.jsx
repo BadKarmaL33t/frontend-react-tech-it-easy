@@ -5,6 +5,7 @@ import TelevisionsToBeSold from "./helpers/TelevisionsToBeSold.js";
 import {bestSellingTv, inventory} from "./constants/inventory.js";
 import FormatScreenSizes from "./helpers/FormatScreenSizes.js";
 import FormatOptions from "./helpers/FormatOptions.jsx";
+import ListAllTelevisions from "./helpers/ListAllTelevisions.jsx";
 
 function App() {
     function sortBySalesTopDown() {
@@ -64,6 +65,9 @@ function App() {
                 <button type="button" onClick={sortForSportsTopDown}>
                     Meest geschikt voor sport eerst
                 </button>
+                <div>
+                    {ListAllTelevisions(inventory)}
+                </div>
             </section>
         </main>
     )
