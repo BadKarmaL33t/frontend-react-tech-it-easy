@@ -6,18 +6,40 @@ import {bestSellingTv, inventory} from "./constants/inventory.js";
 import FormatScreenSizes from "./helpers/FormatScreenSizes.js";
 import FormatOptions from "./helpers/FormatOptions.jsx";
 import ListAllTelevisions from "./helpers/ListAllTelevisions.jsx";
+import {useState} from "react";
 
 function App() {
+    const [sortedInventory, setSortedInventory] = useState(inventory);
+
     function sortBySalesTopDown() {
-        console.log("Meest verkocht eerst")
+        const sorted = [...inventory]; // Create a copy to avoid mutating the original array
+        sorted.sort((a, b) => b.sold - a.sold);
+        setSortedInventory(sorted); // Update the state with the sorted list
+        console.log("Meest verkocht eerst");
     }
 
     function sortByPriceBottomUp() {
-        console.log("Goedkoopste eerst")
+        const sorted = [...inventory];
+        sorted.sort((a, b) => a.price - b.price);
+        setSortedInventory(sorted);
+        console.log("Goedkoopste eerst");
     }
 
     function sortForSportsTopDown() {
-        console.log("Meest geschikt voor sport eerst")
+        const sorted = [...inventory];
+        sorted.sort((a, b) => {
+            if (b.refreshRate !== a.refreshRate) {
+                return b.refreshRate - a.refreshRate;
+            }
+
+            const maxSizeA = Math.max(...a.availableSizes);
+            const maxSizeB = Math.max(...b.availableSizes);
+
+            return maxSizeB - maxSizeA;
+        });
+
+        setSortedInventory(sorted);
+        console.log("Meest geschikt voor sport eerst");
     }
 
     return (
@@ -66,7 +88,7 @@ function App() {
                     Meest geschikt voor sport eerst
                 </button>
                 <div>
-                    {ListAllTelevisions(inventory)}
+                    {ListAllTelevisions(sortedInventory)}
                 </div>
             </section>
         </main>
