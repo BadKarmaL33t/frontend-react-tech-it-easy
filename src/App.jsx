@@ -4,9 +4,9 @@ import OriginalTelevisionStock from "./helpers/OriginalTelevisionStock.js";
 import TelevisionsToBeSold from "./helpers/TelevisionsToBeSold.js";
 import {bestSellingTv, inventory} from "./constants/inventory.js";
 import FormatScreenSizes from "./helpers/FormatScreenSizes.js";
-import FormatOptions from "./helpers/FormatOptions.jsx";
-import ListAllTelevisions from "./helpers/ListAllTelevisions.jsx";
 import {useState} from "react";
+import TvOptions from "./components/TvOptions.jsx";
+import AllTelevisionsList from "./components/AllTelevisionsList.jsx";
 
 function App() {
     const [sortedInventory, setSortedInventory] = useState(inventory);
@@ -84,7 +84,7 @@ function App() {
                         <h4>{bestSellingTv.brand} {bestSellingTv.type} - {bestSellingTv.name}</h4>
                         <h3>€{bestSellingTv.price},-</h3>
                         <small>{FormatScreenSizes(bestSellingTv)}</small>
-                        <small>{FormatOptions(bestSellingTv)}</small>
+                        <small>{TvOptions(bestSellingTv)}</small>
                     </div>
                 </article>
             </section>
@@ -103,7 +103,7 @@ function App() {
                     Grootste schermgroottes eerst
                 </button>
                 <div>
-                    {ListAllTelevisions(sortedInventory)}
+                    {AllTelevisionsList(sortedInventory)}
                 </div>
             </section>
         </main>

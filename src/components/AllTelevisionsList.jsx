@@ -1,8 +1,8 @@
-import FormatScreenSizes from "./FormatScreenSizes.js";
-import FormatOptions from "./FormatOptions.jsx";
+import FormatScreenSizes from "../helpers/FormatScreenSizes.js";
+import FormatOptions from "./TvOptions.jsx";
 import out_of_stock from "../assets/out_of_stock.png";
 
-function listAllTelevisions(inventory) {
+function AllTelevisionsList(inventory) {
     return (
         <ul className="all-televisions-section">
             {inventory.map((tv, index) => (
@@ -28,4 +28,4 @@ function listAllTelevisions(inventory) {
     )
 }
 
-export default listAllTelevisions;
+export default AllTelevisionsList;

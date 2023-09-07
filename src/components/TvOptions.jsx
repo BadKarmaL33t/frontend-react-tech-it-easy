@@ -1,7 +1,7 @@
 import check from '../assets/check.png';
 import minus from '../assets/minus.png';
 
-function formatOptions(tv) {
+function TvOptions(tv) {
     return (
         <ul className="options-list">
             {tv.options.map((option, index) => (
@@ -18,4 +18,4 @@ function formatOptions(tv) {
     )
 }
 
-export default formatOptions;
+export default TvOptions;
